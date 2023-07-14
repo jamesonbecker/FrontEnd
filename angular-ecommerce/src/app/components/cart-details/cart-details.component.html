@@ -13,7 +13,7 @@
 
                     <tr *ngFor="let tempCartItem of cartItems">
                         <td>
-                            <img src="{{ tempCartItem.imageUrl }}" class="img-responsize" width="150px" />
+                            <img src="{{ tempCartItem.imageUrl }}" class="img-responsive" width="150px" />
                         </td>
                         <td>
                             <p>{{ tempCartItem.name }}</p>
@@ -43,20 +43,24 @@
                                     <div class="col-8"></div>
                                 </div>
 
-                                <button (click)="remove(tempCartItem)" class="btn btn-primary btn-sm">Remove</button>
+                                <button (click)="remove(tempCartItem)" class="btn btn-primary btn-sm mt-2">Remove</button>
+
                             </div>
-                            <p class="mt-2">Subtotal: {{ tempCartItem.quantity * tempCartItem.unitPrice | currency:
-                                'USD'}}</p>
+
+
+                            <p class="mt-2">Subtotal: {{ tempCartItem.quantity * tempCartItem.unitPrice | currency: 'USD' }}</p>
                         </td>
                     </tr>
 
                     <tr>
                         <td colspan="2"></td>
-                        <td style="font-weight: bold;">
+                        <td style="font-weight: bold">
                             <p>Total Quantity: {{ totalQuantity }}</p>
                             <p>Shipping: FREE</p>
                             <p>Total Price: {{ totalPrice | currency: 'USD' }}</p>
-                            <a routerLink="/checkout" class="btn btn-primary">Checkout</a>
+                            <div>
+                                <a routerLink="/checkout" class="btn btn-primary">Checkout</a>
+                            </div>
                         </td>
                     </tr>
 
@@ -66,7 +70,7 @@
 
             <!-- if cart is empty then display a message -->
             <div *ngIf="cartItems.length == 0" class="alert alert-warning col-md-12" role="alert">
-                Your shopping cart is empty.
+                Your shopping cart is empty. 
             </div>
 
         </div>
